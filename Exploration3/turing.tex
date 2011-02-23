@@ -61,6 +61,13 @@ An arbitrary decision was made to have the second tape incremented when it is.
 \subsection{JFLAP}
 To create the Turing machine in JFLAP, we started by creating a single state and the transitions for ANDing the first input with the character from the second input and printing it to the third tape. Then, when this worked properly we added a carry state so the result to be printed to the third tape would be added instead of being overwritten. Then it was necessary to add a state for moving the heads back to the left and an accept state.
 
+\section{Bit Shifting}
+\paragraph\indent
+As we reviewed the solution devised for this exploration we attempted to think of ways to improve the speed of our calculations. It occurred to us that the use of bit shifting might be applied as it is done in the hardware of modern processors. With binary a bit shift will have the following effect: $$n << k = n * 2^{k}$$
+This could be applied to our machine by writing zeros at the far right edge of the tape input whenever we desire to shift the bits. The number of times to shift one of the tape inputs could be determined by the length of the other input. This would get you in the ball park of where the solution will eventually be. That is to say shifting the bits would save a lot of work needed by the tape head by quickly moving close to the solution.
+\paragraph\indent
+From there our turning machine would require a few modifications so as to take the necessary steps to reach the desired answer from wherever multiplying by $2^{k}$ lands us, given the remaining values of the input tapes. Bit shifting can take you far, but it can't take you all the way. We began to wonder if there was a more general way to construct our machine such that it was not restricted to binary inputs. This leads us to our thoughts concerning baseless multiplication.
+
 \section{Baseless Multiplication}
 \paragraph\indent
 A discussion spawned in our collaboration to create a Turing machine to compute decimal multiplication natively. Of course, we spoke of converting decimal to binary, computing, and converting back to decimal. This, in spite of defeating the idea of native computation in decimal sparked the idea of how said conversion would take place. 
