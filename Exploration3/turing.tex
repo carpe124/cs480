@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{times,amssymb,amsmath}
-\input{/home/cs480/latex/cs480preamble.tex}
+\input{../cs480preamble.tex}
 
 %%%
 %%% To produce a Device Independent (.dvi) file from this one:
@@ -37,6 +37,13 @@ Multiplication is a shorthand for repeated addition. The problem $2 \times 3$ gi
 Not only is multiplication interesting philosophically, it is also a very useful process. We are a very pragmatic society, so things that are not as useful become less and less used until they fade from common knowledge. There is little risk of that happening with the multiplication. Methods (and symbols) may vary from region to region, so that we may not understand \emph{how} a particular result was reached. But, we can be very confident that given the same numbers, two competent people will reach the same result, regardless of the method employed. Socrates and Napoleon both would have given an answer of 16 to the question $2 \times 8$, although Socrates might not have understood the concept of negative numbers, or even zero (Actually, there is little evidence that Napoleon understood the concept of negative numbers, either, or he might not have tried an extended invasion of Russia).\\
 Beside the fact that the principles of multiplication seem to transend time, space, and culture is how useful multiplication really is. Most of the advances and inventions that we so rely upon would not exist without this simple, profound process. Chemistry, physics, engineering, and even textile manufacturing and cooking would be crippled without it. In short, society, civilization, and all that they entail could barely exist without that most excellent of mathematical gems.\\
 The answer to the question posed in this sentence is simple. Why do we multiply? Because we \emph{must}. Because it makes us who we are and holds in it our potential for the future.
+
+\section{Bit Shifting}
+\paragraph\indent
+As we reviewed the solution devised for this exploration we attempted to think of ways to improve the speed of our calculations. It occured to us that the use of bit shifting might be applied as it is done in the hardware of modern processors. With binary a bit shift will have the following effect: $$n << k = n * 2^{k}$$
+This could be applied to our machine by writing zeros at the far right edge of the tape input whenever we desire to shift the bits. The number of times to shift one of the tape inputs could be determined by the length of the other input. This would get you in the ball park of where the solution will eventually be. That is to say shifting the bits would save a lot of work needed by the tape head by quickly moving close to the solution.
+\paragraph\indent
+From there our turning machine would require a few modifications so as to take the necessary steps to reach the desired answer from wherever multiplying by $2^{k}$ lands us, given the remaining values of the input tapes. Bit shifting can take you far, but it can't take you all the way. We began to wonder if there was a more general way to construct our machine such that it was not restricted to binary inputs. This leads us to our thoughts concerning baseless multiplication.
 
 \section{Baseless Multiplication}
 \paragraph\indent
@@ -86,6 +93,8 @@ $$i-- = 1\;0\;2\;3\;3$$
 
 \subsection{Wrap It Up}
 \paragraph\indent Not only can this Turing machine natively calculate Binary or Decimal multiplication, it can do any representation to any other representation using the same states and transitions. Ironically, writing code to produce this machine on a modern computer would convert the whole lot to Binary anyway. 
+
+
 
 \end{document}
 
